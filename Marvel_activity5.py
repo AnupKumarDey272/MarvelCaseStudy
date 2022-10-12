@@ -2,7 +2,6 @@
 import pandas as pd
 import requests
 import json
-import time
 import hashlib
 
 address="http://gateway.marvel.com/v1/public/characters"
@@ -73,7 +72,7 @@ def marvel_function(api_key,Hash,namewith):
               b.append(a)
               a=[]
         df = pd.DataFrame(b,columns=['id','Character_Name','Description','Comics','Series','Stories','Events'])
-        display(df)
+        print(df)
         return df
         
 
@@ -87,20 +86,20 @@ except:
 
 def filter_marvel(DataFr,col,Cond):
     if Cond[0]=='g':
-        display(DataFr[DataFr[col]>Cond[1]])
+        print(DataFr[DataFr[col]>Cond[1]])
     elif Cond[0] == 'ge':
-        DataFr[DataFr[col]>=Cond[1]]
+        print(DataFr[DataFr[col]>=Cond[1]])
     elif Cond[0] == 'e':
-        DataFr[DataFr[col]==Cond[1]]
+        print(DataFr[DataFr[col]==Cond[1]])
     elif Cond[0] == 'le':
-        DataFr[DataFr[col]<=Cond[1]]
+        print(DataFr[DataFr[col]<=Cond[1]])
     else:
-        DataFr[DataFr[col]<Cond[1]]
+        print(DataFr[DataFr[col]<Cond[1]])
     
 
 
 
-filter_marvel(DF,"Series",['g',20])
+filter_marvel(df,"Series",['g',20])
 
 
 
