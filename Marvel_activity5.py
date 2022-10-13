@@ -1,13 +1,22 @@
-
+import argparse
 import pandas as pd
 import requests
 import json
 import hashlib
 
 address="http://gateway.marvel.com/v1/public/characters"
-private_key = input("Enter private Key: ")
-public_key = input(" Enter public Key: ")
-Hash= input("Enter Hash Key: ")
+parser=argparse.ArgumentParser(description="enter details")
+parser.add_argument('pub_key',type=str)
+parser.add_argument('pri_key',type=str)
+parser.add_argument('H',type=str)
+args=parser.parse_args()
+public_key=args.pub_key
+private_key=args.pri_key
+Hash=args.H
+#private_key = input("Enter private Key: ")
+#public_key = input(" Enter public Key: ")
+#Hash= input("Enter Hash Key: ")
+
 ts='2'
 o=[]
 p=[]
